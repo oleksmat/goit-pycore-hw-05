@@ -1,10 +1,13 @@
-def close_command(_: any):
-    return 'Goodbye', True
+from .helpers.exit_signal_error import ExitSignalError
+from .helpers.register_command import register_command
+from .helpers.input_error import input_error
 
-close = (
-    ['close', 'exit'],
-    0,
-    ' -- close\n' +
-    '    Closes the program',
-    close_command
-)
+@register_command(aliases=['close', 'exit'])
+@input_error
+def close_command(_: any):
+    """
+    close:
+
+    Closes the program.
+    """
+    raise ExitSignalError()
