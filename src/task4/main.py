@@ -1,6 +1,5 @@
-# import list of commands from commands package
-from .commands.helpers.exit_signal_error import ExitSignalError
-from .commands.helpers.register_command import commands
+from commands.helpers.exit_signal_error import ExitSignalError
+from commands.helpers.register_command import commands
 
 def get_aliases(command_func: any):
     if hasattr(command_func, 'aliases'):
@@ -34,15 +33,13 @@ def main():
             print("Invalid command. Check `help` to list all commands")
             continue
 
-        # get command parameters for checking arity
-        command_function = command
-
         try:
             # execute command with supplied arguments
-            result = command_function(state, *args)
+            result = command(state, *args)
 
             print(result)
         except ExitSignalError:
+            # if we receive exit symbol, we say goodbye
             print('Goodbye')
             break
 
