@@ -1,6 +1,6 @@
 # import list of commands from commands package
-from commands.helpers.exit_signal_error import ExitSignalError
-from commands.helpers.register_command import commands
+from .commands.helpers.exit_signal_error import ExitSignalError
+from .commands.helpers.register_command import commands
 
 def get_aliases(command_func: any):
     if hasattr(command_func, 'aliases'):

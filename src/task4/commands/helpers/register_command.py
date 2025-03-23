@@ -5,11 +5,7 @@ from functools import wraps
 commands: list[Callable[[dict[str, str], list[str]], str]] = []
 
 def register_command(aliases: list[str]):
-    print('called register')
-
     def wrapper(fn):
-        print('called wrapper')
-
         @wraps(fn)
         def wrapped_f(*args, **kwargs):
             return fn(*args, **kwargs)
