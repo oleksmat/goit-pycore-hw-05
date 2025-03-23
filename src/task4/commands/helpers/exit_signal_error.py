@@ -1,0 +1,2 @@
+class ExitSignalError(Exception):
+    pass
