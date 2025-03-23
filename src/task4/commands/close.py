@@ -6,7 +6,7 @@ from .helpers.input_error import input_error
 @input_error
 def close_command(_: any):
     """
-    close:
+    close(exit):
 
     Closes the program.
     """
